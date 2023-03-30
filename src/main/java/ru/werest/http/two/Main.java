@@ -1,6 +1,5 @@
 package ru.werest.http.two;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -12,9 +11,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Main {
@@ -48,7 +45,7 @@ public class Main {
             byte[] img = entry.getKey().getEntity().getContent().readAllBytes();
             String imgName = new File(entry.getValue()).getName();
 
-            try (FileOutputStream fileOutputStream        = new FileOutputStream(imgName);
+            try (FileOutputStream fileOutputStream = new FileOutputStream(imgName);
                  BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream)) {
 
                 bufferedOutputStream.write(img);
